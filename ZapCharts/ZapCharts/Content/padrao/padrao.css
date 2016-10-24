@@ -1,0 +1,9 @@
+﻿body {
+}
+
+.painel-padrao{
+    background-color: #e4e4ec;
+    border-radius: 5px;
+    margin: 3% 3% 3% 3%;
+    padding: 1.5%
+}

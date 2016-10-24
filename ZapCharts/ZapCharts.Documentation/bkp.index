@@ -1,0 +1,63 @@
+@model ZapCharts.Views.ViewModel.Grafico.GraficosViewModel
+@{
+    ViewBag.Title = "Dashboard";
+}
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"><h2>ZAPCHARTS</h2></div>
+    <div class="col-md-4"></div>
+</div>
+<hr />
+
+<div class="row">
+
+</div>
+<div class="container">
+        @foreach (var grafico in Model.Graficos)
+        {
+            <div class="row">
+                <div class="col-md-8">
+                    @{
+                        var htmlContainer = grafico.ChartContainerHtmlString().ToString();
+                        if (htmlContainer.Contains("pizza"))
+                        {
+                            @Html.Partial("_graficoPizza", grafico);
+                        }
+                        else if (htmlContainer.Contains("linha"))
+                        {
+                            @Html.Partial("_graficoLinhas", grafico);
+                        }
+                    }
+                    </div>
+                    <div class="col-md-4">
+                        <br/>
+                        Lorem Ipsum
+                        <hr/>
+                        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+                        "Não há ninguém que ame a dor por si só, que a busque e queira tê-la, simplesmente por ser dor..."
+
+                      
+                     
+                        Maecenas mi augue, vestibulum non diam non, sollicitudin semper odio. Suspendisse pellentesque sapien vel dui euismod auctor. Integer aliquet purus quis leo vulputate, vitae volutpat justo tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et lectus sed tellus aliquet dignissim. Nulla facilisi. Pellentesque id viverra nunc. Curabitur lobortis augue eget pretium sollicitudin. Aliquam erat volutpat. Vestibulum blandit fermentum pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec quis efficitur leo, et scelerisque orci. Suspendisse potenti. Donec gravida dui a luctus scelerisque. </div>
+                </div>
+        }
+    </div>
+
+</div>
+
+
+
+
+@*<div class="row">
+        <div class="col-md-12">
+            @Html.Partial("_graficoLinhas", Model.Graficos[0])
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">...</div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Partial("_graficoPizza", Model.Graficos[1])
+        </div>
+    </div>*@
